@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers</title>
+</head>
+<body>
+    <b id="task">To generate all the prime numbers between 2 and 999:</b>
+
+    <p id="output"></p>
+    <script>
+        // iterates over all numbers from 999 to 2
+        for ( var x = 999; x > 1; x--) { 
+            var isPrime = true
+            // iterates over all numbers from 2 to x
+            for ( var y = 2; y < x; y++) {
+                // breaks the loop if x is divisible by any y 
+                if (x%y == 0) {
+                    isPrime = false
+                    break
+                }
+            }
+            // if the loop had not been broken, then x is not divisible for all y => x is prime
+            if ( isPrime ) {
+                document.write(x, '<br>')
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+A number is prime if it is not divisible by any of the prime numbers before it
+ -->
