@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three</title>
+    <style>
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <b>To find and display the area of different shapes (atleast 4) based on user's choice. (Note: display the shapes as menu, where the user can choose one. Use switch case for the same)</b>
+
+    <form name="main">
+        <p>Select one of the following shapes</p>
+        <fieldset>
+            <legend>Shapes</legend>
+            <input type="radio" name="shapes" value="1">
+            <img src="assets/circle.png" alt="Circle">
+            <input type="radio" name="shapes" value="2">
+            <img src="assets/pentagon.png" alt="Pentagon">
+            <input type="radio" name="shapes" value="3">
+            <img src="assets/square.png" alt="Square">
+            <input type="radio" name="shapes" value="4">
+            <img src="assets/triangle.png" alt="Triangle">
+        </fieldset>
+        <p>Side / radius = <input type="number" id="a"></p>
+        <button type="button" onclick="run()">Calculate area</button>
+    </form>
+
+    <h2 id="area"></h2>
+
+    <script>
+        function run() {
+            const shape = document.forms['main']['shapes'].value
+            const a = document.getElementById('a').value
+            console.log(shape, ' of side ', a)
+            var area = 0;   
+            switch (parseInt(shape)) {
+                case 1:
+                    area = Math.PI * Math.pow(a, 2);
+                    break;
+                case 2:
+                    area = (1/4) * Math.pow(a, 2) * Math.sqrt(5*(5 + 2*Math.sqrt(5)));
+                    break;
+                case 3:
+                    area = Math.pow(a, 2);
+                    break;
+                case 4: 
+                    area = (Math.sqrt(3)/2) * Math.pow(a, 2)
+                    break
+                default:
+                    alert('Please choose a shape')
+            }
+            document.getElementById('area').innerHTML = Math.round(area*100)/100
+
+
+        }
+    </script>
+
+</body>
+</html>
